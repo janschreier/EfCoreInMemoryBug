@@ -20,14 +20,14 @@ namespace efCoreSqlLiteInMemory
                 entity.HasMany(d => d.FuelType)
                     .WithMany(p => p.MotorArt)
                     .UsingEntity<Dictionary<string, object>>(
-                        "MotorArtKbaKraftstoffCode",
+                        "FuelTypeMotorArt",
                         l => l.HasOne<FuelType>().WithMany().HasForeignKey("FuelTypeId").OnDelete(DeleteBehavior.ClientSetNull),
-                        r => r.HasOne<MotorArt>().WithMany().HasForeignKey("MotorArtId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_MotorArtKbaKraftstoffCode"),
+                        r => r.HasOne<MotorArt>().WithMany().HasForeignKey("MotorArtId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_FuelTypeMotorArt"),
                         j =>
                         {
-                            j.HasKey("MotorArtId", "FuelTypeId").HasName("PK_KraftstoffArtKbaKraftstoffCode");
+                            j.HasKey("MotorArtId", "FuelTypeId").HasName("PK_KraftstoffArtFuelType");
 
-                            j.ToTable("MotorArtKbaKraftstoffCode", "FzgDaten");
+                            j.ToTable("FuelTypeMotorArt", "FzgDaten");
                         });
 
                 entity.HasMany(d => d.MotorBauArt)
