@@ -14,8 +14,6 @@ namespace efCoreSqlLiteInMemory.Tables
         [Key]
         public int MotorBauartId { get; set; }
         
-        [ForeignKey("MotorBauArtId")]
-        [InverseProperty("MotorBauArt")]
         public virtual ICollection<MotorArt> MotorArt { get; set; }
     }
 }

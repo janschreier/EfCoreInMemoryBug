@@ -18,9 +18,6 @@ namespace efCoreSqlLiteInMemory.Tables
         [StringLength(255)]
         public string Bezeichnung { get; set; } = null!;
 
-
-        [ForeignKey("FuelTypeId")]
-        [InverseProperty("FuelType")]
         public virtual ICollection<MotorArt> MotorArt { get; set; }
     }
 }
